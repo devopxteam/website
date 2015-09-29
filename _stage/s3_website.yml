@@ -1,0 +1,32 @@
+---
+# Amazon id and secret are stored in an environment variable to prevent
+# publication.
+s3_id: <%= ENV['AWS_KEY_ID'] %>
+s3_secret: <%= ENV['AWS_SECRET_KEY'] %>
+
+# Amazon s3 bucket name.
+s3_bucket: stage.devopx.com
+
+# Concurrency level for uploads. Decrease if errors are occurring.
+concurrency_level: 5
+
+## Cloud front CDN
+cloudfront_distribution_id: EA6L5NDE9L45G
+cloudfront_invalidate_root: true
+
+## gzip active and file extensions
+gzip: true
+gzip:
+  - .html
+  - .css
+  - .md
+  - .js
+
+# Set browser caching.
+max_age:
+  "assets/*": 3600
+  "*": 300
+
+cache_control:
+  "assets/*": public, max-age=3600
+  "*": no-cache, no-store
