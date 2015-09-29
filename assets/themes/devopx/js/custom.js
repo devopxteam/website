@@ -12,13 +12,10 @@ $(function() {
   $("#footer-form").submit(function() {
 
     $.ajaxSetup({
-      crossDomain: true,
-      xhrFields: {
-          withCredentials: true
-      }
+      crossDomain: true
     });
-    
-    var url = "https://script.google.com/macros/s/AKfycbxDfD_B32IakCN7QzxG_7aUjRU86TpBmoY1MssmUGQ/dev";
+
+    var url = "https://script.google.com/macros/s/AKfycbyAjDj_8USL00FFUFpxMZOXjIyfvE1lxjkoVjEBPH3QoZwlZos/exec";
     var data = $('#footer-form').serialize();
 
     // Stop form from submitting normally
@@ -26,8 +23,6 @@ $(function() {
 
     //send data to server
     $.post(url, data, function(response) {
-
-      response = $.parseJSON(response);
 
       if(response.processed){
         $('#successFormSubmit').show();
