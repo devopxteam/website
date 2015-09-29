@@ -4,6 +4,7 @@ rvm:
 - 2.0.0
 before_script:
 - bundle exec jekyll build
+- chmod +x ./_scripts/deploy.sh
 script:
 - "./_scripts/deploy.sh"
 branches:
