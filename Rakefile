@@ -6,6 +6,7 @@ require 'yaml'
 require 'tmpdir'
 require 'jekyll'
 require 's3_website'
+require 'jekyll-multiple-languages'
 
 task :default => :server
 
