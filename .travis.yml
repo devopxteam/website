@@ -2,6 +2,11 @@ sudo: false
 language: ruby
 rvm:
 - 2.0.0
+addons:
+  apt:
+    packages:
+    - jpegoptim
+    - optipng
 before_script:
 - chmod +x ./_scripts/init.sh
 - "./_scripts/init.sh"
