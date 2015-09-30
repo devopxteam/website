@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /usr/bin/env bash
+set -xe
 
 if [[ $TRAVIS_BRANCH == 'master' ]] ; then
   bundle exec rake publish
