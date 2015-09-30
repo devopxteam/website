@@ -12,13 +12,11 @@ task :default => :server
 
 desc 'Build site with Jekyll'
 task :build do
-  system 'bundle exec compass compile'
   system 'bundle exec jekyll build'
 end
 
 desc 'Build and start local server'
 task :serve do
-  system 'bundle exec compass watch &'
   system 'bundle exec jekyll serve -w --baseurl="" --drafts'
 end
 
