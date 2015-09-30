@@ -7,8 +7,8 @@ addons:
     packages:
     - jpegoptim
     - optipng
-    - s3cmd
 before_script:
+- pip install --user s3cmd
 - chmod +x ./_scripts/init.sh
 - "./_scripts/init.sh"
 - bundle exec jekyll build

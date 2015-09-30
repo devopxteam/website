@@ -11,7 +11,8 @@ if [[ $TRAVIS_BRANCH == 'master' ]] ; then
   for file in ${files}; do
     modification_time=$(stat -c '%y' ${file})
     expires_date=$(date -u -d "${modification_time} +1 year" '+%a, %d %b %Y %H:%M:%S GMT')
-    s3cmd -c ../.s3cfg --add-header='Expires: ${expires_date}' \
+    s3cmd --access_key=${AWS_KEY_ID} --secret_key=${AWS_SECRET_KEY} \
+    --add-header='Expires: ${expires_date}' \
     _site/ s3://${s3_bucket}/
   done
 elif [[ $TRAVIS_BRANCH == 'stage' ]] ; then
@@ -25,7 +26,8 @@ elif [[ $TRAVIS_BRANCH == 'stage' ]] ; then
   for file in ${files}; do
     modification_time=$(stat -c '%y' ${file})
     expires_date=$(date -u -d "${modification_time} +1 year" '+%a, %d %b %Y %H:%M:%S GMT')
-    s3cmd -c ../.s3cfg --add-header='Expires: ${expires_date}' \
+    s3cmd --access_key=${AWS_KEY_ID} --secret_key=${AWS_SECRET_KEY} \
+    --add-header='Expires: ${expires_date}' \
     _site/ s3://${s3_bucket}/
   done
 else
