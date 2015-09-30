@@ -15,7 +15,7 @@ cloudfront_distribution_id: EY3H3BWT6UKHT
 cloudfront_invalidate_root: true
 cloudfront_distribution_config:
   default_cache_behavior:
-    min_TTL: <%= 60 * 60 * 24 %>
+    min_TTL: <%= 60 * 60 * 24 * 3 %>
   aliases:
     quantity: 2
     items:
