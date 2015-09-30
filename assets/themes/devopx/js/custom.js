@@ -25,9 +25,9 @@ $(function() {
     $.post(url, data, function(response) {
 
       if(response.processed){
-        $('#successFormSubmit').show();
+        $('#successFormSubmit').fadeIn();
       } else {
-        $('#errorFormSubmit').show();
+        $('#errorFormSubmit').fadeIn();
       }
 
     });

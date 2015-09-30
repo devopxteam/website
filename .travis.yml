@@ -7,6 +7,7 @@ addons:
     packages:
     - jpegoptim
     - optipng
+    - jpegtran
 before_script:
 - chmod +x ./_scripts/init.sh
 - "./_scripts/init.sh"

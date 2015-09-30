@@ -10,8 +10,6 @@
 (function($){
 	$(document).ready(function(){
 
-		$(".banner-image").backstretch('/assets/themes/devopx/images/banner.jpg');
-
 		// Fixed header
 		//-----------------------------------------------
 		$(window).scroll(function() {
