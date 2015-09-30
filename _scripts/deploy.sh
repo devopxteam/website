@@ -27,6 +27,8 @@ elif [[ $TRAVIS_BRANCH == 'stage' ]] ; then
     expires_date=$(date -u -d "${modification_time} +1 year" '+%a, %d %b %Y %H:%M:%S GMT')
     s3cmd -c ../.s3cfg --add-header='Expires: ${expires_date}' \
     _site/ s3://${s3_bucket}/
+    echo "s3cmd -c ../.s3cfg --add-header='Expires: ${expires_date}' \
+    _site/ s3://${s3_bucket}/"
   done
 else
   echo 'Invalid branch. You can only deploy from master and stage.'
