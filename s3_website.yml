@@ -13,9 +13,16 @@ concurrency_level: 5
 ## Cloud front CDN
 cloudfront_distribution_id: EY3H3BWT6UKHT
 cloudfront_invalidate_root: true
+cloudfront_distribution_config:
+  default_cache_behavior:
+    min_TTL: <%= 60 * 60 * 24 %>
+  aliases:
+    quantity: 2
+    items:
+      CNAME0: devopx.com
+      CNAME1: www.devopx.com
 
 ## gzip active and file extensions
-gzip: true
 gzip:
   - .html
   - .css
@@ -23,10 +30,8 @@ gzip:
   - .js
 
 # Set browser caching.
-max_age:
-  "assets/*": 3600
-  "*": 300
+cache_control: public, no-transform, max-age=1200, s-maxage=1200
 
-cache_control:
-  "assets/*": public, max-age=3600
-  "*": no-cache, no-store
+redirects:
+  /es: /es/index.html
+  /es/: /es/index.html

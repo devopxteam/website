@@ -20,7 +20,6 @@ cloudfront_distribution_config:
     quantity: 1
     items:
       CNAME: stage.devopx.com
-max_age: 120
 
 ## gzip active and file extensions
 gzip:
