@@ -29,4 +29,12 @@ gzip:
   - .js
 
 # Set browser caching.
-cache_control: public, no-transform, max-age=1200, s-maxage=1200
+cache_control: public, no-transform
+max_age:
+  "assets/*": 2592000
+  "*.html": 300
+
+exclude_from_upload:
+  - Gemfile*
+  - s3_website.yml
+  - Rakefile
