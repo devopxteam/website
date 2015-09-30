@@ -31,3 +31,7 @@ gzip:
 
 # Set browser caching.
 cache_control: public, no-transform, max-age=1200, s-maxage=1200
+
+redirects:
+  /es: /es/index.html
+  /es/: /es/index.html
