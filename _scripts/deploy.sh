@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-set -xe
 
 if [[ $TRAVIS_BRANCH == 'master' ]] ; then
   bundle exec rake publish
@@ -11,7 +10,7 @@ if [[ $TRAVIS_BRANCH == 'master' ]] ; then
 elif [[ $TRAVIS_BRANCH == 'stage' ]] ; then
   bundle exec rake stage
 
-  s3_bucket=$(cat s3_website.yml | grep -i s3_bucket | cut -d" " -f 2)
+  s3_bucket=$(cat _stage/s3_website.yml | grep -i s3_bucket | cut -d" " -f 2)
   expires=$(date '+%a, %d %b %Y %H:%M:%S GMT' -d '+1 year')
   s3cmd --access_key=${AWS_KEY_ID} --secret_key=${AWS_SECRET_KEY} \
   --recursive modify --add-header="Expires: ${expires}" s3://${s3_bucket}/
