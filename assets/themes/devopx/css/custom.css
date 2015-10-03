@@ -46,7 +46,7 @@ File Description: Place here your custom CSS styles
   .nav.nav-justified > li > a > .quote {
     left: auto;
     top: auto;
-    right: 20px;
+    right: auto;
     bottom: 0px;
   }
 }
