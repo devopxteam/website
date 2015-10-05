@@ -32,12 +32,12 @@ $(document).ready(function() {
       return xhr;
     };
 
-    var url = 'https://script.google.com/macros/s/AKfycbyAjDj_8USL00FFUFpxMZOXjIyfvE1lxjkoVjEBPH3QoZwlZos/exec';
+    var url = 'http://globalitss.com/freshdesk.php';
     var method = 'POST';
     var xhr = createCORSRequest(method, url);
 
     xhr.onload = function() {
-      var response = xhr.responseText;
+      var response = JSON.parse(this.response);
       if(response.processed){
         $('#successFormSubmit').fadeIn();
       } else {
