@@ -11,10 +11,7 @@ $(document).ready(function() {
 
   $("#footer-form").submit(function(event) {
 
-    // Stop form from submitting normally
-    var dp = "getPreventDefault" in event ?
-    event.getPreventDefault() :
-    event.defaultPrevented;
+    event.preventDefault();
 
     var createCORSRequest = function(method, url) {
       var xhr = new XMLHttpRequest();
