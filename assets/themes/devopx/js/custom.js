@@ -7,30 +7,53 @@
  * File Description: Place here your custom scripts
  */
 
-$(function() {
+$(document).ready(function() {
 
-  $("#footer-form").submit(function() {
-
-    $.ajaxSetup({
-      crossDomain: true
-    });
-
-    var url = "https://script.google.com/macros/s/AKfycbyAjDj_8USL00FFUFpxMZOXjIyfvE1lxjkoVjEBPH3QoZwlZos/exec";
-    var data = $('#footer-form').serialize();
+  $("#footer-form").submit(function(event) {
 
     // Stop form from submitting normally
-    event.preventDefault();
+    var dp = "getPreventDefault" in event ?
+    event.getPreventDefault() :
+    event.defaultPrevented;
 
-    //send data to server
-    $.post(url, data, function(response) {
+    var createCORSRequest = function(method, url) {
+      var xhr = new XMLHttpRequest();
+      if ("withCredentials" in xhr) {
+        // Most browsers.
+        xhr.open(method, url, true);
+      } else if (typeof XDomainRequest != "undefined") {
+        // IE8 & IE9
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+      } else {
+        // CORS not supported.
+        xhr = null;
+      }
+      return xhr;
+    };
 
+    var url = 'https://script.google.com/macros/s/AKfycbyAjDj_8USL00FFUFpxMZOXjIyfvE1lxjkoVjEBPH3QoZwlZos/exec';
+    var method = 'POST';
+    var xhr = createCORSRequest(method, url);
+
+    xhr.onload = function() {
+      var response = xhr.responseText;
       if(response.processed){
         $('#successFormSubmit').fadeIn();
       } else {
         $('#errorFormSubmit').fadeIn();
       }
+    };
 
-    });
+    xhr.onerror = function() {
+      $('#errorFormSubmit').fadeIn();
+    };
+
+    var formElement = document.getElementById("footer-form");
+    formData = new FormData(formElement);
+
+    // submit request
+    xhr.send(formData);
 
   });
 
