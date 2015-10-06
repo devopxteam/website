@@ -29,7 +29,7 @@ $(document).ready(function() {
       return xhr;
     };
 
-    var url = 'http://globalitss.com/freshdesk.php';
+    var url = 'https://script.google.com/macros/s/AKfycbyAjDj_8USL00FFUFpxMZOXjIyfvE1lxjkoVjEBPH3QoZwlZos/exec';
     var method = 'POST';
     var xhr = createCORSRequest(method, url);
 
@@ -43,7 +43,11 @@ $(document).ready(function() {
     };
 
     xhr.onerror = function() {
-      $('#errorFormSubmit').fadeIn();
+      if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+        $('#successFormSubmit').fadeIn();
+      } else {
+        $('#errorFormSubmit').fadeIn();
+      }
     };
 
     var formElement = document.getElementById("footer-form");
