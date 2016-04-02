@@ -29,7 +29,7 @@ $(document).ready(function() {
       return xhr;
     };
 
-    var url = 'https://script.google.com/macros/s/AKfycbyAjDj_8USL00FFUFpxMZOXjIyfvE1lxjkoVjEBPH3QoZwlZos/exec';
+    var url = 'https://script.google.com/a/macros/globalitss.com/s/AKfycbwwBaXNMmZBbG7MFyyc_EqI9ZQ2DXFugIv86pzu-3lemfTRMBSO/exec';
     var method = 'POST';
     var xhr = createCORSRequest(method, url);
 
