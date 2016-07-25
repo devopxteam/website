@@ -111,7 +111,7 @@ JB :
   # where [HELPER] is the name of the helper you are overriding.
 
 # Multiple languages
-gems:           ['jekyll-multiple-languages']
+gems:           ['jekyll-multiple-languages', 'jekyll-paginate']
 
 languages:          ['en', 'es']
 
@@ -121,3 +121,8 @@ language_default:   'en'
 fill_default_content: true
 
 exclude: [vendor]
+
+webrick:
+  headers:
+    "Access-Control-Allow-Origin": "http://127.0.0.1:4000"
+    "Access-Control-Allow-Methods": "GET, OPTIONS, HEAD"

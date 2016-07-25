@@ -29,7 +29,7 @@ $(document).ready(function() {
       return xhr;
     };
 
-    var url = 'https://script.google.com/a/macros/globalitss.com/s/AKfycbwwBaXNMmZBbG7MFyyc_EqI9ZQ2DXFugIv86pzu-3lemfTRMBSO/exec';
+    var url = 'https://xkvdd2n68d.execute-api.us-east-1.amazonaws.com/prod/contact';
     var method = 'POST';
     var xhr = createCORSRequest(method, url);
 
@@ -50,11 +50,14 @@ $(document).ready(function() {
       }
     };
 
-    var formElement = document.getElementById("footer-form");
-    formData = new FormData(formElement);
+    var json = {
+        "name": $('#name').val(),
+        "email": $('#email').val(),
+        "message": $('#message').val(),
+    };
 
     // submit request
-    xhr.send(formData);
+    xhr.send(JSON.stringify(json));
 
   });
 
