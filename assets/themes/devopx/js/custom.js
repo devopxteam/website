@@ -9,6 +9,9 @@
 
 $(document).ready(function() {
 
+  var date = new Date();
+  $("#year").html(date.getFullYear());
+
   $("#footer-form").submit(function(event) {
 
     event.preventDefault();
