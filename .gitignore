@@ -7,3 +7,4 @@ Thumbs.db
 .rvmrc
 Gemfile.lock
 _credentials
+.jekyll-cache/
